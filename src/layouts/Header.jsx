@@ -77,8 +77,7 @@ function Header() {
           </Link>
         </div>
         {isMobileMenuOpen && (
-          <div className="lg:hidden fixed top-[64px] left-0 w-full bg-white shadow-lg z-50 p-6 flex flex-col items-center text-center gap-6 animate-fadeIn">
-            {/* Mobile Search */}
+          <div className="lg:hidden fixed top-[56px] left-0 w-full bg-white shadow-lg z-50 p-6 flex flex-col items-center text-center gap-6 animate-fadeIn">
             <div className="relative w-full max-w-xs mb-4">
               <input
                 type="text"
@@ -109,6 +108,7 @@ function Header() {
               </a>
               <Link
                 to="/cart"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="flex items-center gap-2 text-gray-700 hover:text-orange-500 justify-center"
               >
                 <FaShoppingCart className="text-lg" />
