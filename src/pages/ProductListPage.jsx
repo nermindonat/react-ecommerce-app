@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { useProducts } from "../context/ProductContext"; // context'ten veri al
+import { useProducts } from "../context/ProductContext";
 import { useNavigate } from "react-router-dom";
 import FilterSidebar from "../components/FilterSidebar";
 

@@ -1,12 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import "./index.css";
+import Header from "./layouts/Header";
 import HomePage from "./pages/HomePage";
 import ProductListPage from "./pages/ProductListPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
-import { ProductProvider } from "./context/ProductContext";
-import Header from "./layouts/Header";
 import { CartProvider } from "./context/CartContext";
 
 function App() {
