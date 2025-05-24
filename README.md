@@ -1,7 +1,7 @@
 # React + Vite
 
 # Home Page
-![image](https://github.com/user-attachments/assets/b76cc502-2775-411e-9213-c9daa6d169aa)
+![image](https://github.com/user-attachments/assets/ef307d43-517e-4a43-8041-c6fa23c4a893)
 
 # Product Listing Page
 ![image](https://github.com/user-attachments/assets/cb0dcb16-1975-4473-9947-ce629f0286b0)
