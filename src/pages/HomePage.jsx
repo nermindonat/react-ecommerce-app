@@ -3,12 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useProducts } from "../context/ProductContext";
 
 function HomePage() {
-  const { products } = useProducts(); // context'ten alındı
+  const { products } = useProducts();
   const navigate = useNavigate();
 
-  const topFiveProducts = products.slice(0, 6); // sadece ilk 5 ürün
+  const topFiveProducts = products.slice(0, 6);
 
-  // Tıklama handler’ı
   const handleClick = async (id) => {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
     const data = await res.json();
@@ -17,8 +16,25 @@ function HomePage() {
   };
 
   return (
-    <div className="p-4 bg-[#f5f6fa] min-h-screen">
-      <div className="max-w-[1500px] mx-auto py-8 px-4">
+    <div className="p-4 min-h-screen">
+      <div className=" flex flex-col md:flex-row gap-4 mb-4py-8 px-4">
+        <div className="flex-1 bg-green-50 rounded-xl flex items-center justify-center py-6">
+          <span className="text-green-800 font-bold text-xl text-center">
+            Sepete en çok eklenenler
+          </span>
+        </div>
+        <div className="flex-1 bg-orange-50 rounded-xl flex items-center justify-center py-6">
+          <span className="text-orange-700 font-bold text-xl text-center">
+            En çok öne çıkanlar
+          </span>
+        </div>
+        <div className="flex-1 bg-pink-50 rounded-xl flex items-center justify-center py-6">
+          <span className="text-pink-700 font-bold text-xl text-center">
+            Flaş Ürünler
+          </span>
+        </div>
+      </div>
+      <div className="max-w-[1500px] mx-auto py-8 px-4 ">
         <h1 className="font-bold text-2xl mb-8">Popüler Ürünler</h1>
         <div className="flex flex-wrap gap-6 justify-start">
           {topFiveProducts.map((product) => (
@@ -59,7 +75,6 @@ function HomePage() {
           ))}
         </div>
       </div>
-
       <div className="text-right mr-16 flex items-center justify-end ">
         <button
           onClick={() => navigate("/products")}

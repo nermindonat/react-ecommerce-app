@@ -4,12 +4,12 @@ import { useCart } from "../context/CartContext";
 import { useState } from "react";
 
 function ProductDetailPage() {
-  const { id } = useParams();
-  const { products } = useProducts();
-  const product = products.find((p) => p.id === Number(id));
-  const { addToCart } = useCart();
-
   const [added, setAdded] = useState(false);
+  const { id } = useParams();
+  const { addToCart } = useCart();
+  const { products } = useProducts();
+
+  const product = products.find((p) => p.id === Number(id));
 
   const handleAddToCart = () => {
     addToCart(product);

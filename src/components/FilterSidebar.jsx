@@ -1,4 +1,3 @@
-// src/components/FilterSidebar.jsx
 import { useState, useEffect } from "react";
 import { FiChevronDown, FiChevronUp, FiSearch } from "react-icons/fi";
 
@@ -46,7 +45,6 @@ export default function FilterSidebar({ onCategoryChange, onPriceApply }) {
 
   return (
     <aside className="w-72 p-4 bg-white rounded-lg shadow">
-      {/* Kategori Bölümü */}
       <div className="mb-4">
         <button
           onClick={() => toggleSection("category")}
@@ -81,8 +79,6 @@ export default function FilterSidebar({ onCategoryChange, onPriceApply }) {
           </ul>
         )}
       </div>
-
-      {/* Fiyat Bölümü */}
       <div className="mb-4">
         <button
           onClick={() => toggleSection("price")}

@@ -1,25 +1,20 @@
-// src/pages/ProductsPage.jsx
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useProducts } from "../context/ProductContext"; // context'ten veri al
 import { useNavigate } from "react-router-dom";
 import FilterSidebar from "../components/FilterSidebar";
 
 const ProductsPage = () => {
-  const { products } = useProducts(); // context'ten ürünleri al
+  const { products } = useProducts();
   const navigate = useNavigate();
-  // 1️⃣ Filtreleme için gerekli state'ler
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [priceFilter, setPriceFilter] = useState({ min: "", max: "" });
 
   const handleClick = async (id) => {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
     const data = await res.json();
-    console.log(data);
-
     navigate(`/products/${id}`, { state: { product: data } });
   };
 
-  // 2️⃣ Sidebar'dan gelen filtre callback'leri
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
   };
@@ -27,16 +22,13 @@ const ProductsPage = () => {
     setPriceFilter({ min: Number(min), max: Number(max) });
   };
 
-  // 3️⃣ products listesini filtrele
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
       let ok = true;
-
       // Kategori filtresi
       if (selectedCategory) {
         ok = ok && p.category === selectedCategory;
       }
-
       // Fiyat filtresi
       if (priceFilter.min !== "" && priceFilter.max !== "") {
         ok = ok && p.price >= priceFilter.min && p.price <= priceFilter.max;
@@ -49,17 +41,13 @@ const ProductsPage = () => {
   return (
     <div className="max-w-[1400px] mx-auto px-4 py-8">
       <div className="flex gap-6">
-        {/* Sidebar */}
         <div className="w-72 flex-shrink-0">
           <FilterSidebar
             onCategoryChange={handleCategoryChange}
             onPriceApply={handlePriceApply}
           />
         </div>
-
-        {/* İçerik */}
         <div className="flex-1">
-          {/* <h1 className="font-bold text-2xl mb-8">Tüm Ürünler</h1> */}
           <div className="flex flex-wrap gap-6 justify-start">
             {filteredProducts.map((product) => (
               <div
@@ -97,7 +85,7 @@ const ProductsPage = () => {
                 </p>
               </div>
             ))}
-            {/* Filtre Sonrası Hiç Ürün Kalmazsa */}
+            {/* Filtre sonrası hiç ürün yoksa mesaj ver */}
             {filteredProducts.length === 0 && (
               <p className="text-gray-500">
                 Bu kriterlere uygun ürün bulunamadı.
