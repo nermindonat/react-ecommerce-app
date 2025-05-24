@@ -34,12 +34,9 @@ function CartPage() {
                 className="w-28 h-28 object-contain rounded-lg bg-gray-50"
               />
               <div className="flex-1 ml-6">
-                <div className="font-semibold text-lg">{item.title}</div>
-                {item.size && (
-                  <div className="text-gray-500 text-sm mt-1">
-                    Beden: {item.size}
-                  </div>
-                )}
+                <div className="font-semibold text-sm md:text-lg">
+                  {item.title}
+                </div>
                 <div className="text-orange-600 font-bold text-base mt-1">
                   Fiyat: {item.price} TL
                 </div>

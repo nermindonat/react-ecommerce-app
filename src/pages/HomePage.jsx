@@ -44,8 +44,8 @@ function HomePage() {
         </div>
       </div>
       <div className="max-w-[1500px] mx-auto py-8 px-4">
-        <h1 className="font-bold text-2xl mb-8">Popüler Ürünler</h1>
-        <div className="flex flex-wrap gap-6 justify-start">
+        <h1 className="font-bold text-2xl mb-8 text-center md:text-left">Popüler Ürünler</h1>
+        <div className="flex flex-wrap gap-6 justify-center md:justify-start">
           {topFiveProducts.map((product) => (
             <div
               key={product.id}

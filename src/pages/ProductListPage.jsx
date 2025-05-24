@@ -40,15 +40,15 @@ const ProductsPage = () => {
 
   return (
     <div className="max-w-[1400px] mx-auto px-4 py-8">
-      <div className="flex gap-6">
-        <div className="w-72 flex-shrink-0">
+      <div className="flex flex-col md:flex-row gap-6">
+        <div className="w-full md:w-72 flex-shrink-0 mb-6 md:mb-0">
           <FilterSidebar
             onCategoryChange={handleCategoryChange}
             onPriceApply={handlePriceApply}
           />
         </div>
         <div className="flex-1">
-          <div className="flex flex-wrap gap-6 justify-start">
+          <div className="flex flex-wrap gap-6 justify-center md:justify-start">
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
