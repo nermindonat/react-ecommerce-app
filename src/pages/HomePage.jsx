@@ -1,12 +1,21 @@
 import { GrNext } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../context/ProductContext";
+import { useEffect, useState } from "react";
 
 function HomePage() {
   const { products } = useProducts();
+  const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
 
   const topFiveProducts = products.slice(0, 6);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data))
+      .catch((err) => console.error("Kategori verisi alınamadı:", err));
+  }, []);
 
   const handleClick = async (id) => {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -17,7 +26,7 @@ function HomePage() {
 
   return (
     <div className="p-4 min-h-screen">
-      <div className=" flex flex-col md:flex-row gap-4 mb-4py-8 px-4">
+      <div className=" max-w-[1500px] mx-auto flex flex-col  md:flex-row gap-4 mb-4py-8 px-4">
         <div className="flex-1 bg-green-50 rounded-xl flex items-center justify-center py-6">
           <span className="text-green-800 font-bold text-xl text-center">
             Sepete en çok eklenenler
@@ -34,7 +43,7 @@ function HomePage() {
           </span>
         </div>
       </div>
-      <div className="max-w-[1500px] mx-auto py-8 px-4 ">
+      <div className="max-w-[1500px] mx-auto py-8 px-4">
         <h1 className="font-bold text-2xl mb-8">Popüler Ürünler</h1>
         <div className="flex flex-wrap gap-6 justify-start">
           {topFiveProducts.map((product) => (
@@ -83,6 +92,21 @@ function HomePage() {
           Tümünü Gör
           <GrNext className="ml-2 text-black " />
         </button>
+      </div>
+      <div className="max-w-[1500px] mx-auto py-6 px-4">
+        <h2 className="font-bold text-2xl mb-6">Kategoriler</h2>
+        <div className="flex flex-wrap gap-6 ">
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              className="w-[100px] h-[100px] bg-gray-100 rounded-full flex items-center justify-center text-center p-4 shadow hover:shadow-md hover:bg-gray-200 transition cursor-pointer"
+            >
+              <span className="text-sm font-medium text-gray-700 leading-tight">
+                {category}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
