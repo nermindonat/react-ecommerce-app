@@ -39,7 +39,7 @@ function HomePage() {
         </div>
         <div className="flex-1 bg-pink-50 rounded-xl flex items-center justify-center py-6">
           <span className="text-pink-700 font-bold text-xl text-center">
-            Flaş Ürünler
+            Flaş ürünler
           </span>
         </div>
       </div>
