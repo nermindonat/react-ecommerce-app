@@ -26,7 +26,7 @@ function CartPage() {
           {cartItems.map((item) => (
             <div
               key={item.id}
-              className="flex items-center bg-white rounded-xl shadow-sm p-4 mb-6 border border-gray-200"
+              className="flex items-center bg-white rounded-xl shadow-sm p-4 mb-6 border border-gray-200 relative"
             >
               <img
                 src={item.image}
@@ -40,29 +40,31 @@ function CartPage() {
                 <div className="text-orange-600 font-bold text-base mt-1">
                   Fiyat: {item.price} TL
                 </div>
+                <div className="w-full mt-3 flex justify-start lg:w-auto lg:mt-0 lg:flex lg:items-center lg:gap-2 lg:mx-4 lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => decreaseQuantity(item.id)}
+                      className="w-8 h-8 rounded bg-gray-100 text-gray-500 text-xl font-bold hover:bg-gray-200"
+                    >
+                      -
+                    </button>
+                    <span className="w-6 text-center">{item.quantity}</span>
+                    <button
+                      onClick={() => increaseQuantity(item.id)}
+                      className="w-8 h-8 rounded bg-gray-100 text-gray-500 text-xl font-bold hover:bg-gray-200"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    className="flex items-center text-gray-500 hover:text-red-600 ml-2"
+                  >
+                    <FaTrash className="mr-1" />
+                    <span className="text-sm">Sil</span>
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center gap-2 mx-4">
-                <button
-                  onClick={() => decreaseQuantity(item.id)}
-                  className="w-8 h-8 rounded bg-gray-100 text-gray-500 text-xl font-bold hover:bg-gray-200"
-                >
-                  -
-                </button>
-                <span className="w-6 text-center">{item.quantity}</span>
-                <button
-                  onClick={() => increaseQuantity(item.id)}
-                  className="w-8 h-8 rounded bg-gray-100 text-gray-500 text-xl font-bold hover:bg-gray-200"
-                >
-                  +
-                </button>
-              </div>
-              <button
-                onClick={() => removeFromCart(item.id)}
-                className="flex items-center text-gray-500 hover:text-red-600 ml-2"
-              >
-                <FaTrash className="mr-1" />
-                <span className="text-sm">Sil</span>
-              </button>
             </div>
           ))}
         </div>
