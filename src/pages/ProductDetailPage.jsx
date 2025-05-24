@@ -22,7 +22,7 @@ function ProductDetailPage() {
   if (!product) return <div>Ürün bulunamadı.</div>;
 
   return (
-    <div className="flex gap-10 items-start justify-center py-12 min-h-[80vh] max-w-[1100px] mx-auto">
+    <div className="flex flex-col md:flex-row gap-10 items-center md:items-start justify-center py-12 min-h-[80vh] max-w-[1100px] mx-auto">
       <div className="bg-white rounded-xl shadow-md p-6 flex items-center justify-center min-w-[320px] min-h-[350px]">
         <img
           src={product.image}
@@ -30,7 +30,7 @@ function ProductDetailPage() {
           className="max-h-[350px] max-w-[260px] object-contain"
         />
       </div>
-      <div className="flex-1 max-w-[600px]">
+      <div className="flex-1 max-w-[600px] w-full px-4 md:px-0">
         <div className="flex flex-col items-start gap-2">
           <div className="text-gray-500 text-sm my-2 font-roboto">
             <span className="text-gray-700 font-medium">Kategori:</span>{" "}
