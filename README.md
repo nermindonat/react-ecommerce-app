@@ -12,3 +12,6 @@
 # Cart Page 
 ![image](https://github.com/user-attachments/assets/5120a342-65b7-4055-8c3b-6c0284933f72)
 
+# Checkout Page
+![image](https://github.com/user-attachments/assets/135b078d-3657-46da-a6b5-0d7c7dba7ea7)
+
