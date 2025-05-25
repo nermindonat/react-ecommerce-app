@@ -1,17 +1,18 @@
 # React + Vite
 
 # Home Page
-![image](https://github.com/user-attachments/assets/ef307d43-517e-4a43-8041-c6fa23c4a893)
+![image](https://github.com/user-attachments/assets/144fd802-5304-4066-b981-14f773bdbce2)
 
 # Product Listing Page
-![image](https://github.com/user-attachments/assets/cb0dcb16-1975-4473-9947-ce629f0286b0)
+![image](https://github.com/user-attachments/assets/ff675f28-3d4a-4fd0-9253-479cd5aa46f8)
 
 # Product Detail Page
-![image](https://github.com/user-attachments/assets/5157a9cb-3fa4-47b1-8d76-c16177dbc303)
+![image](https://github.com/user-attachments/assets/7533ed4b-bce9-44cb-8daa-b47f75bcfcec)
 
 # Cart Page 
-![image](https://github.com/user-attachments/assets/5120a342-65b7-4055-8c3b-6c0284933f72)
+![image](https://github.com/user-attachments/assets/ae18478c-4b54-48dc-a27d-40741ee0a891)
 
 # Checkout Page
-![image](https://github.com/user-attachments/assets/135b078d-3657-46da-a6b5-0d7c7dba7ea7)
+![image](https://github.com/user-attachments/assets/172f954c-f35f-4dea-8aea-8b94f9c6025a)
+
 
