@@ -24,7 +24,7 @@ function Header() {
       const query = search.trim();
       if (query) {
         navigate(`/products?search=${encodeURIComponent(query)}`);
-        setIsMobileMenuOpen(false);
+        setIsMobileMenuOpen(false); // Mobilde arama yapıldıktan sonra menüyü kapat
       }
     }
   };

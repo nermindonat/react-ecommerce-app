@@ -14,13 +14,12 @@ function HomePage() {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data))
-      .catch((err) => console.error("Kategori verisi alınamadı:", err));
+      .catch((err) => console.error("Category data could not be retrieved:", err));
   }, []);
 
   const handleClick = async (id) => {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
     const data = await res.json();
-
     navigate(`/products/${id}`, { state: { product: data } });
   };
 
