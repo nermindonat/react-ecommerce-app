@@ -4,7 +4,7 @@
 ![image](https://github.com/user-attachments/assets/144fd802-5304-4066-b981-14f773bdbce2)
 
 # Product Listing Page
-![image](https://github.com/user-attachments/assets/ff675f28-3d4a-4fd0-9253-479cd5aa46f8)
+![image](https://github.com/user-attachments/assets/4f91d3bc-5712-423b-9cc9-dd41cfad47d2)
 
 # Product Detail Page
 ![image](https://github.com/user-attachments/assets/7533ed4b-bce9-44cb-8daa-b47f75bcfcec)
