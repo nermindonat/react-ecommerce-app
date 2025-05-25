@@ -99,10 +99,16 @@ function Header() {
             <div className="relative w-full max-w-xs mb-4">
               <input
                 type="text"
-                placeholder="Ürün, kategori, marka ara"
+                placeholder="Ürün, kategori ara"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                onKeyDown={handleSearch}
                 className="w-full rounded-full pl-6 pr-10 py-2 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white text-gray-700"
               />
-              <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-orange-500" />
+              <FaSearch
+                onClick={handleSearch}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-orange-500"
+              />
             </div>
             <div className="flex flex-col gap-6 w-full max-w-xs">
               <div className="flex items-center gap-2 text-gray-700 justify-center">
