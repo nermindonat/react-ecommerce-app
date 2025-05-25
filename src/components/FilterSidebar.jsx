@@ -1,10 +1,23 @@
 import { useState, useEffect } from "react";
 import { FiChevronDown, FiChevronUp, FiSearch } from "react-icons/fi";
 
-export default function FilterSidebar({ onCategoryChange, onPriceApply }) {
-  const [openSections, setOpenSections] = useState([]);
+export default function FilterSidebar({
+  onCategoryChange,
+  onPriceApply,
+  selectedCategory,
+}) {
+  const [openSections, setOpenSections] = useState(
+    selectedCategory ? ["category"] : []
+  );
   const [categories, setCategories] = useState([]);
   const [priceRange, setPriceRange] = useState({ min: "", max: "" });
+
+  // Anasayfada categoriye tıklayıp ürün listeleme sayfasına gidince kategori filtresinin açık kalması için
+  useEffect(() => {
+    if (selectedCategory && !openSections.includes("category")) {
+      setOpenSections((prev) => [...prev, "category"]);
+    }
+  }, [selectedCategory, openSections]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/categories")
@@ -67,6 +80,7 @@ export default function FilterSidebar({ onCategoryChange, onPriceApply }) {
                   id={`cat-${cat}`}
                   className="form-radio h-4 w-4 text-orange-500"
                   onChange={() => onCategoryChange(cat)}
+                  checked={selectedCategory === cat}
                 />
                 <label
                   htmlFor={`cat-${cat}`}

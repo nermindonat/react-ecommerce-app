@@ -5,7 +5,7 @@ import {
   FaSearch,
   FaBars,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.jpg";
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
@@ -13,8 +13,20 @@ import { useState } from "react";
 function Header() {
   const { cartItems } = useCart();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  // Arama inputuna yazılan query ye göre filtreleme
+  const handleSearch = (e) => {
+    if (e.key === "Enter" || e.type === "click") {
+      const query = search.trim();
+      if (query) {
+        navigate(`/products?search=${encodeURIComponent(query)}`);
+      }
+    }
+  };
 
   return (
     <header className="bg-blue-100 py-2 px-4 relative">
@@ -26,22 +38,28 @@ function Header() {
             <span className="font-bold">D</span>
           </h2>
         </a>
-
         <button
           className="lg:hidden p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <FaBars className="text-xl text-gray-700" />
         </button>
-
         <div className="hidden lg:flex flex-1 justify-center">
           <div className="relative w-full max-w-xl">
             <input
               type="text"
-              placeholder="Ürün, kategori, marka ara"
+              placeholder="Ürün, kategori ara"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyDown={handleSearch}
               className="w-full rounded-full pl-6 pr-10 py-2 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white text-gray-700"
             />
-            <FaSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-orange-500" />
+            <FaSearch
+              onClick={handleSearch}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-orange-500 
+            hover:text-orange-600 hover:scale-110 transition-all duration-200 
+            cursor-pointer"
+            />
           </div>
         </div>
 

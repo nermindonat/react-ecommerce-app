@@ -101,10 +101,14 @@ function HomePage() {
           {categories.map((category, index) => (
             <div
               key={index}
+              onClick={() =>
+                navigate(`/products?category=${category.toLowerCase()}`)
+              }
               className="w-[100px] h-[100px] bg-gray-100 rounded-full flex items-center justify-center text-center p-4 shadow hover:shadow-md hover:bg-gray-200 transition cursor-pointer"
             >
               <span className="text-sm font-medium text-gray-700 leading-tight">
-                {category}
+                {/* Data dan gelen kelimelerin baş harfini büyük göstermek için */}
+                {category.charAt(0).toUpperCase() + category.slice(1)}
               </span>
             </div>
           ))}
